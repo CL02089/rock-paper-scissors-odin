@@ -23,7 +23,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelect === "paper" && computerSelection === "rock") ||
     (playerSelect === "scissors" && computerSelection === "paper")
   ) {
-    win = true;
+    win = "player";
     finalString = `You win! ${playerSelect} beats ${computerSelection}`;
   }
 
@@ -32,7 +32,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelect === "paper" && computerSelection === "scissors") ||
     (playerSelect === "scissors" && computerSelection === "rock")
   ) {
-    win = false;
+    win = "computer";
     finalString = `You lost! ${computerSelection} beats ${playerSelect}`;
   }
 
@@ -64,8 +64,8 @@ let computerScore = 0;
 
 for (i = 1; i <= 5; i++) {
   game();
-  if (win) playerScore++;
-  if (!win) computerScore++;
+  if (win === "player") playerScore++;
+  if (win === "computer") computerScore++;
   if (win === "tie") {
     playerScore += 0;
     computerScore += 0;
